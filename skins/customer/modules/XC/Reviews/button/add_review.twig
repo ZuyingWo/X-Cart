@@ -1,0 +1,15 @@
+{##
+ # Button 'Add review'
+ #
+ # @ListChild (list="reviews.general", weight="20")
+ #}
+<div id="product-reviews-button">
+    {% if this.isAllowedAddReview() %}
+      {{ widget('\\XLite\\Module\\XC\\Reviews\\View\\Button\\Customer\\AddReview', label=t('Add review'), style='regular-main-button', product=this.product) }}
+    {% endif %}
+    {% if not this.isAllowedAddReview() %}
+      <div class="add-review-button-disabled">
+          {{ this.getAddReviewMessage() }}
+      </div>
+    {% endif %}
+</div>

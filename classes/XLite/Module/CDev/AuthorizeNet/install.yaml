@@ -1,0 +1,33 @@
+# vim: set ts=2 sw=2 sts=2 et:
+#
+# Fixtures
+#
+# Copyright (c) 2011-present Qualiteam software Ltd. All rights reserved.
+# See https://www.x-cart.com/license-agreement.html for license details.
+
+XLite\Model\Payment\Method:
+  - service_name: AuthorizeNet SIM
+    class: Module\CDev\AuthorizeNet\Model\Payment\Processor\AuthorizeNetSIM
+    type: C
+    orderby: -101000
+    countries: [AD, NL, US, AT, AU, BE, BG, CA, CG, CF, CH, CY, CZ, DE, DK, DO, IR, ES, FI, GB, FR, GR, HU, IE, IT, GI, KR, LI, MC, MD, MT, NL, NO, LU, PL, PT, RO, SE, SI, SK, SM, SY, TZ, VA]
+    translations:
+      - code: en
+        name: Authorize.Net SIM
+    settings:
+      - name: login
+      - name: key
+      - name: type
+        value: sale
+      - name: test
+        value: 1
+      - name: prefix
+        value: xcart        
+      - name: md5_key
+XLite\Model\LanguageLabel:
+  - { name: "API Login ID", translations: [{ code: en, label: "API Login ID" }] }
+  - { name: "Transaction key", translations: [{ code: en, label: "Transaction key" }] }
+  - { name: "MD5 Hash protection", translations: [{ code: en, label: "MD5 Hash protection" }] }
+  - { name: "authorize_md5_key_help", translations: [{ code: en, label: "The MD5 Hash feature allows you to authenticate that transaction responses are securely received from Authorize.Net.<br> You can configure the MD5 Hash value in the Security Setting sections of your merchant interface at <a href='http://account.authorize.net'>http://account.authorize.net</a>" }] }
+  - { name: "authorize_key_help", translations: [{ code: en, label: "To obtain the transaction key from the Merchant Interface, do the following:<br><ol><li>Log into the Merchant Interface</li><li>Select Settings from the Main Menu</li><li>Click on Obtain Transaction Key in the Security section</li><li>Type in the answer to the secret question configured on setup</li><li>Click Submit</li></ol>" }] }
+  - { name: "It's recommended to limit the length of invoice prefix to 9 characters", translations: [{ code: en, label: "It's recommended to limit the length of invoice prefix to 9 characters. Larger prefixes will be cut prior to transaction initialization." }] }
